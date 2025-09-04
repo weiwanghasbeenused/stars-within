@@ -80,9 +80,12 @@ $profile_video = null;
 $profile_pictures = array();
 foreach($item['media'] as $m) {
     if(strpos($m['caption'], '[profile]') !== false) {
-        $profile_pictures[] = array(...$m, 'src'=>m_url($m));
+	$pic = $m;
+	$pic['src'] = m_url($m);
+        $profile_pictures[] = $pic;
     } else if (strpos($m['caption'], '[profile-video]') !== false) {
-        $profile_video = array(...$m, 'src'=>m_url($m));
+        $profile_video = $m;
+	$profile_video['src'] = m_url($m);
     }
 }
 
