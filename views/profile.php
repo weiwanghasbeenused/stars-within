@@ -168,5 +168,11 @@ $sections = array(
     for(const container of carousel_containers) {
         new Carousel(container);
     }
-    
+    const archive_button = document.getElementsByClassName('archive-button');
+    for(const button of archive_button) {
+        button.addEventListener('click', ()=>{
+            const status = button.getAttribute('data-archived');
+            button.setAttribute('data-archived', status == '0' ? '1': '0');
+        })
+    }
 </script>
