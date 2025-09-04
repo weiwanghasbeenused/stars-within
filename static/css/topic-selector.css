@@ -1,0 +1,33 @@
+.sub-topics-container {
+    --gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    margin-top: var(--gap);
+}
+.topic, .sub-topic {
+    background-color: #fff;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.topic {
+    border-radius:  25px;
+    height: 78px;
+    padding: 0 30px;
+    text-align: left;
+}
+
+.sub-topic {
+    border-radius:  18px;
+    height: 52px;
+    display: inline-flex;
+    padding: 0 30px;
+}
+
+.main-topic-container + .main-topic-container{
+    margin-top: 4em;
+    /* margin-top: 8px;  */
+}

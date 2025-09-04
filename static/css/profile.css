@@ -1,0 +1,146 @@
+.profile-section-title {
+    font-weight: 700;
+}
+.section-content-container {
+    margin-top: 14px;
+}
+.section-content-container.body {
+    margin-top: 12px;
+}
+.profile-section + .profile-section {
+    margin-top: 40px;
+}
+
+.segment {
+    display: flex;
+}
+.segment + .segment {
+    /* margin-top: 14px; */
+}
+.segment-title {
+    flex: 0 0 80px;
+}
+.section-content-segment {
+    position: relative;
+}
+.external-link {
+    background-image: url('/media/svg/external-link.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.slides-wrapper {    
+    --slide-count: 1;
+    --slide-width: 100vw;
+    --slide-idx: 0;
+    width: var(--slide-width);
+    position: relative;
+    left: calc((100% - var(--slide-width)) / 2);
+    overflow: hidden;
+}
+.slides-spring {
+    width: calc(var(--slide-width)* var(--slide-count));
+    transform: translate3d(calc(-1 * var(--slide-idx) * var(--slide-width)), 0, 0);
+    transition: transform .25s;
+    display: flex;
+}
+.slide {
+    width: var(--slide-width);
+    height: var(--slide-width);
+    position: relative;
+}
+.slide img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit:cover;
+}
+.profile-header {
+    padding: 30px 0 40px 0;
+}
+.profile-title {
+    margin-top: 5px;
+    color: #000;
+}
+.profile-name-and-title {
+    float: left;
+    max-width: 50%;
+}
+.profile-slogan {
+    position: relative;
+    line-height: 1.2;
+    float: right;
+    max-width: 50%;
+}
+.profile-slogan:before,
+.profile-slogan:after {
+    --x-shift: 15px;
+    --y-shift: 15px;
+    content: '';
+    position: absolute;
+    width: 34px;
+    height: 38px;
+    background-image: url(/media/svg/slogan-ornament.svg);
+    z-index: 1;
+}
+.profile-slogan:before {
+    
+    left: calc(-1 * var(--x-shift));
+    top: calc( 50% - var(--y-shift));
+    transform: translate(0, -50%);
+}
+.profile-slogan:after {
+    right: calc(-1 * var(--x-shift));
+    top: calc( 50% + var(--y-shift));
+    transform: translate(0, -50%);
+} 
+.profile-slogan-span {
+    position: relative;
+    z-index: 5;
+}
+.dot {
+    --color: var(--dark-blue);
+    --size: 20px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: 2px solid var(--color);
+}
+.dot.active {
+    background-color: var(--color);
+}
+.carousel-dots-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 0 0;
+    gap: 10px;
+}
+.carousel-overlay-button {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+.carousel-overlay-button.prev-button {
+    left: 0;
+}
+.carousel-overlay-button.next-button {
+    right: 0;
+}
+.profile-controls-container {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+}
+@media screen and (min-width: 500px){
+    .slides-wrapper {
+        --slide-width: 375px;
+    }
+}
