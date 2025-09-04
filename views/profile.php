@@ -54,11 +54,12 @@ function renderCarousel($pics){
     $output = '';
     $dots = '';
     $pic_count = count($pics);
+    $toolbar = renderToolbar();
     foreach($pics as $key => $m) {
         $output .= "<div class='slide'><img src='$m[src]'></div>";
         $dots .= "<div class='dot'></div>";
     }
-    $output = "<div class='carousel-container'>
+    $output = "<div class='carousel-container'>$toolbar
         <div class='slides-wrapper' style='--slide-count:$pic_count'>
             <div class='slides-spring'>$output</div>
             <div class='prev-button carousel-overlay-button'></div>
@@ -72,7 +73,10 @@ function renderHeader($name, $title, $slogan){
     $output = "<div class='profile-header float-container'><div class='profile-name-and-title'><div class='profile-name large bold'>$name</div><div class='profile-title bold'>$title</div></div><div class='profile-slogan medium bold'><span class='profile-slogan-span'>$slogan</span></div></div>";
     return $output;
 }
-
+function renderToolbar(){
+    $output = "<div class='profile-toolbar'><div class='archive-button' data-archived='0'></div><div class='share-button'></div></div>";
+    return $output;
+}
 $name = $item['name1'];
 $title = $item['name2'];
 $slogan = $item['address1'];
@@ -143,6 +147,7 @@ $sections = array(
 
 ?>
 <div id="profile" class="page">
+    <div class="profile-container">
     <?php 
         echo renderCarousel($profile_pictures);
         echo renderHeader($name, $title, $slogan);
@@ -153,9 +158,8 @@ $sections = array(
     <div class='profile-controls-container'>
         <div class='profile-prev-button'></div>
         <div class='contact-button'>聯絡心理師</div>
-        <div class='share-button'>分享</div>
-        <div class='save-button'>收藏</div>
         <div class='profile-next-button'></div>
+    </div>
     </div>
 </div>
 <script type="module">

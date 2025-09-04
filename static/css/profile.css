@@ -104,6 +104,9 @@
     position: relative;
     z-index: 5;
 }
+.carousel-container {
+    position: relative;
+}
 .dot {
     --color: var(--dark-blue);
     --size: 20px;
@@ -135,9 +138,62 @@
 }
 .profile-controls-container {
     position: fixed;
-    bottom: 5px;
-    left: 5px;
-    width: calc(100% - 10px);
+    bottom: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-prev-button,
+.profile-next-button {
+    flex: 0 0 50px;
+    height: 50px;
+    background-size: 50px 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    box-sizing: content-box;
+}
+.profile-prev-button {
+    background-image: url(/media/svg/arrow-left.svg);
+}
+.profile-next-button {
+    background-image: url(/media/svg/arrow-right.svg);
+}
+.profile-toolbar {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    z-index: 10;
+    right: -10px;
+    gap: 10px;
+}
+.archive-button,
+.share-button {
+    width: 28px;
+    height: 28px;
+    background-size: 28px 28px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    box-sizing: content-box;
+}
+.archive-button[data-archived="0"] {
+    background-image: url(/media/svg/archive-unsaved.svg);
+}
+.archive-button[data-archived="1"] {
+    background-image: url(/media/svg/archive-saved.svg);
+}
+.share-button {
+    background-image: url(/media/svg/share.svg);
+}
+.profile-container {
+    padding-bottom: 100px;
 }
 @media screen and (min-width: 500px){
     .slides-wrapper {
